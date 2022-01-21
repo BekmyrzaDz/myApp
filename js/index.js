@@ -21,7 +21,7 @@ function start() {
     }
 }
 
-start();
+// start();
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -30,6 +30,8 @@ const personalMovieDB = {
     genres: [],
     privat: false
 };
+
+// writeYourGenres();
 
 function remembersMyFilms() {
     let movies = 0;
@@ -48,7 +50,7 @@ function remembersMyFilms() {
     }
 }
 
-remembersMyFilms();
+// remembersMyFilms();
 
 function detectPersonalLevel() {
     if (personalMovieDB.count < 10) {
@@ -62,6 +64,45 @@ function detectPersonalLevel() {
     }
 }
 
-detectPersonalLevel();
+// detectPersonalLevel();
 
-console.log(personalMovieDB);
+// Так тоже правильно
+// function showMyDb() {
+//     if (personalMovieDB.privat == false) {
+//         console.log(personalMovieDB);
+//     }
+// }
+
+function showMyDb(hidden) {
+    if (!hidden) {
+        console.log(personalMovieDB);
+    }
+}
+
+showMyDb(personalMovieDB.privat);
+
+// Мой вариант
+// function writeYourGenres() {
+//     let genre;
+
+//     for (let i = 1; i <= 3; i++) {
+//         genre = prompt(`Ваш любимый жанр под номером ${i}`, '');
+
+//         let copy = genre;
+
+//         if (genre !== null && genre !== '') {
+//             personalMovieDB.genres.push(copy);
+//         }
+//     }
+// }
+
+// Решение
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+        const genre = prompt(`Ваш любимый жанр под номером ${i}`, '');
+
+        personalMovieDB.genres[i - 1] = genre;
+    }
+}
+
+writeYourGenres();
