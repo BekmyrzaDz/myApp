@@ -15,25 +15,21 @@ personalMovieDB
 "Любимый жанр #(номер по порядку, начиная с 1) это (название из массива) "
 */
 
-// Запрашиваем у зрителя количество просмотренних им фильмов
-let numberOfFilms;
-
-function start() {
-    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-
-    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-    }
-}
-
-// start();
-
 const personalMovieDB = {
-    count: numberOfFilms,
+    count: 0,
     movies: {},
     actors: {},
     genres: [],
     privat: false,
+
+    // Запрашиваем у зрителя количество просмотренних им фильмов
+    start() {
+        this.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+
+        while (this.count == '' || this.count == null || isNaN(this.count)) {
+            this.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+        }
+    },
 
     // Запрашиваем у зрителя поледний просмотренний его фильм
     // и его оценку к этому фильму
@@ -56,11 +52,11 @@ const personalMovieDB = {
 
     // Оценка зрителя на киномана
     detectPersonalLevel() {
-        if (personalMovieDB.count < 10) {
+        if (this.count < 10) {
             alert('Просмотрено довольно мало фильмов.');
-        } else if (personalMovieDB.count < 30) {
+        } else if (this.count < 30) {
             alert('Вы классический зритель.');
-        } else if (personalMovieDB.count >= 30) {
+        } else if (this.count >= 30) {
             alert('Вы киноман.');
         } else {
             alert('Произошла ошибка.');
@@ -126,9 +122,11 @@ const personalMovieDB = {
 
 // Вызываем методы
 
-// remembersMyFilms();
+personalMovieDB.start();
 
-// detectPersonalLevel();
+personalMovieDB.remembersMyFilms();
+
+personalMovieDB.detectPersonalLevel();
 
 personalMovieDB.showMyDb(personalMovieDB.privat);
 
