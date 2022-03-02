@@ -94,14 +94,33 @@ const personalMovieDB = {
     // }
 
     // Решение
-    writeYourGenres() {
-        for (let i = 1; i <= 3; i++) {
-            const genre = prompt(`Ваш любимый жанр под номером ${i}`, '');
+    // 1 - вариант 
+    // writeYourGenres() {
+    //     for (let i = 1; i <= 3; i++) {
+    //         const genre = prompt(`Ваш любимый жанр под номером ${i}`, '');
 
-            if (genre == null || genre == '') {
+    //         if (genre == null || genre == '') {
+    //             i--;
+    //         } else {
+    //             this.genres[i - 1] = genre;
+    //         }
+    //     }
+
+    //     this.genres.forEach((element, index) => {
+    //         console.log(`Любимый жанр ${index + 1} это ${element}`);
+    //     });
+    // },
+
+    // 2 - вариант
+    // С разбиением входных данных в массив через разделитель
+    writeYourGenres() {
+        for (let i = 1; i < 2; i++) {
+            const genres = prompt(`Введите ваш любимый жанр под номером ${i} через запятую`, '');
+
+            if (genres == null || genres === '') {
                 i--;
             } else {
-                this.genres[i - 1] = genre;
+                this.genres = genres.split(', ').sort();
             }
         }
 
@@ -110,6 +129,7 @@ const personalMovieDB = {
         });
     },
 
+    // Мой вариант
     // Преключатель видимости БД
     toggleVisybleMyDB() {
         if (this.privat === false) {
@@ -118,18 +138,27 @@ const personalMovieDB = {
             this.privat = false;
         }
     },
+
+    // Решение
+    // toggleVisybleMyDB() {
+    //     if (this.privat) {
+    //         this.privat = false;
+    //     } else {
+    //         this.privat = true;
+    //     }
+    // },
 };
 
 // Вызываем методы
 
-personalMovieDB.start();
+// personalMovieDB.start();
 
-personalMovieDB.remembersMyFilms();
+// personalMovieDB.remembersMyFilms();
 
-personalMovieDB.detectPersonalLevel();
+// personalMovieDB.detectPersonalLevel();
 
-personalMovieDB.showMyDb(personalMovieDB.privat);
+// personalMovieDB.showMyDb(personalMovieDB.privat);
 
-personalMovieDB.writeYourGenres();
+// personalMovieDB.writeYourGenres();
 
-personalMovieDB.toggleVisybleMyDB();
+// personalMovieDB.toggleVisybleMyDB();
