@@ -151,14 +151,14 @@ const personalMovieDB = {
 
 // Вызываем методы
 
-// personalMovieDB.start();
+personalMovieDB.start();
 
-// personalMovieDB.remembersMyFilms();
+personalMovieDB.remembersMyFilms();
 
-// personalMovieDB.detectPersonalLevel();
+personalMovieDB.detectPersonalLevel();
 
-// personalMovieDB.showMyDb(personalMovieDB.privat);
+personalMovieDB.showMyDb(personalMovieDB.privat);
 
-// personalMovieDB.writeYourGenres();
+personalMovieDB.writeYourGenres();
 
-// personalMovieDB.toggleVisybleMyDB();
+personalMovieDB.toggleVisybleMyDB();
